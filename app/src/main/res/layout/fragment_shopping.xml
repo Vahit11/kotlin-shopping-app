@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-    
+
     <data>
+
         <variable
             name="selectedShopping"
             type="com.vahitkeskin.kotlinshoppingapp.model.Shopping" />
@@ -19,60 +20,60 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:downloadUrl="@{selectedShopping.image}"
+            android:minHeight="200dp"
             android:paddingTop="10dp"
-            android:scaleType="fitCenter"
-            android:minHeight="200dp"/>
+            android:scaleType="fitCenter" />
 
         <TextView
             android:id="@+id/shoppingName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/shoppingImage"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="7dp"
             android:text="@{selectedShopping.name}"
             android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_centerHorizontal="true"
-            android:layout_margin="7dp"/>
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/shoppingCapital"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/shoppingName"
-            android:text="@{selectedShopping.price}"
-            android:textSize="16sp"
             android:layout_centerHorizontal="true"
-            android:layout_margin="7dp"/>
+            android:layout_margin="7dp"
+            android:text="@{selectedShopping.price}"
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/shoppingRegion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/shoppingCapital"
-            android:text="@{selectedShopping.category}"
-            android:textSize="16sp"
             android:layout_centerHorizontal="true"
-            android:layout_margin="7dp"/>
+            android:layout_margin="7dp"
+            android:text="@{selectedShopping.category}"
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/shoppingCurruncy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/shoppingRegion"
-            android:text="@{selectedShopping.stock}"
-            android:textSize="16sp"
             android:layout_centerHorizontal="true"
-            android:layout_margin="7dp"/>
+            android:layout_margin="7dp"
+            android:text="@{selectedShopping.stock}"
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/shoppingLanguage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/shoppingCurruncy"
-            android:text="@{selectedShopping.id}"
-            android:textSize="16sp"
             android:layout_centerHorizontal="true"
-            android:layout_margin="7dp"/>
+            android:layout_margin="7dp"
+            android:text="@{selectedShopping.id}"
+            android:textSize="16sp" />
 
 
     </RelativeLayout>

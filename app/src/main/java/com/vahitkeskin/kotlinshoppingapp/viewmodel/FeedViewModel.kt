@@ -3,6 +3,7 @@ package com.vahitkeskin.kotlinshoppingapp.viewmodel
 import android.app.Application
 import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
+import com.vahitkeskin.kotlinshoppingapp.model.Categories
 import com.vahitkeskin.kotlinshoppingapp.model.Shopping
 import com.vahitkeskin.kotlinshoppingapp.services.ShoppingAPIService
 import com.vahitkeskin.kotlinshoppingapp.services.ShoppingDatabase
@@ -21,6 +22,7 @@ class FeedViewModel(application: Application) : BaseViewModel(application) {
     private var refreshTime = 10 * 60 * 1000 * 1000 * 1000L //10 Dakka
 
     val shopping = MutableLiveData<List<Shopping>>()
+    val categories = MutableLiveData<List<Categories>>()
     val shoppingError = MutableLiveData<Boolean>()
     val shoppingLoading = MutableLiveData<Boolean>()
 
@@ -51,7 +53,7 @@ class FeedViewModel(application: Application) : BaseViewModel(application) {
         shoppingLoading.value = true
 
         disposable.add(
-            shoppingAPIService.getData()
+            shoppingAPIService.getShoppingData()
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(object : DisposableSingleObserver<List<Shopping>>() {
@@ -64,6 +66,24 @@ class FeedViewModel(application: Application) : BaseViewModel(application) {
                     override fun onError(e: Throwable) {
                         shoppingLoading.value = false
                         shoppingError.value = true
+                        e.printStackTrace()
+                    }
+
+                })
+        )
+    }
+
+    fun getCategoryAPI() {
+        disposable.addAll(
+            shoppingAPIService.getCategoryData()
+                .subscribeOn(Schedulers.newThread())
+                .observeOn((AndroidSchedulers.mainThread()))
+                .subscribeWith(object : DisposableSingleObserver<List<Categories>>() {
+                    override fun onSuccess(t: List<Categories>) {
+                        categories.value = t
+                    }
+
+                    override fun onError(e: Throwable) {
                         e.printStackTrace()
                     }
 

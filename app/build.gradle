@@ -89,4 +89,7 @@ dependencies {
     implementation "com.android.support:design:$supportVersion"
 
     implementation "androidx.preference:preference:$preferencesVersion"
+
+    implementation 'jp.wasabeef:glide-transformations:4.3.0'
+    implementation 'jp.co.cyberagent.android:gpuimage:2.1.0'
 }

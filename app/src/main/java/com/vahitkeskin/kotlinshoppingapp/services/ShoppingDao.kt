@@ -19,4 +19,5 @@ interface ShoppingDao {
 
     @Query("DELETE FROM shopping")
     suspend fun deleteAllShopping()
+
 }

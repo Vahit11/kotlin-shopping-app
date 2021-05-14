@@ -1,5 +1,6 @@
 package com.vahitkeskin.kotlinshoppingapp.services
 
+import com.vahitkeskin.kotlinshoppingapp.model.Categories
 import com.vahitkeskin.kotlinshoppingapp.model.Shopping
 import com.vahitkeskin.kotlinshoppingapp.util.UtilStrings.BASE_URL
 import io.reactivex.Single
@@ -16,8 +17,12 @@ class ShoppingAPIService {
         .build()
         .create(ShoppingAPI::class.java)
 
-    fun getData() : Single<List<Shopping>>{
+    fun getShoppingData() : Single<List<Shopping>>{
         return api.getShoppingAPI()
+    }
+
+    fun getCategoryData() : Single<List<Categories>>{
+        return api.getCategoryAPI()
     }
 
 }

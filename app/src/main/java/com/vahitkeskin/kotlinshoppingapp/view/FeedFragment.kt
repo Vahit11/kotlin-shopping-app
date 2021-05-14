@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.vahitkeskin.kotlinshoppingapp.R
+import com.vahitkeskin.kotlinshoppingapp.adapter.CategoryAdapter
 import com.vahitkeskin.kotlinshoppingapp.adapter.ShoppingAdapter
 import com.vahitkeskin.kotlinshoppingapp.viewmodel.FeedViewModel
 import kotlinx.android.synthetic.main.fragment_feed.*
@@ -16,6 +17,7 @@ class FeedFragment : Fragment() {
 
     private lateinit var viewModel: FeedViewModel
     private var shoppingAdapter = ShoppingAdapter(arrayListOf())
+    private var categoryAdapter = CategoryAdapter(arrayListOf())
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,9 +31,17 @@ class FeedFragment : Fragment() {
 
         viewModel = ViewModelProviders.of(this).get(FeedViewModel::class.java)
         viewModel.refreshData()
+        viewModel.getCategoryAPI()
 
+
+        //Shopping
         shoppingList.layoutManager = LinearLayoutManager(context)
         shoppingList.adapter = shoppingAdapter
+
+
+        //Category
+        rvCategory.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
+        rvCategory.adapter = categoryAdapter
 
         swipeRefreshLayout.setOnRefreshListener {
             shoppingList.visibility = View.GONE
@@ -41,7 +51,16 @@ class FeedFragment : Fragment() {
             swipeRefreshLayout.isRefreshing = false
         }
 
+        observeLiveDataCategory()
         observeLiveData()
+    }
+
+    private fun observeLiveDataCategory() {
+        viewModel.categories.observe(viewLifecycleOwner, {categories ->
+            categories.let {
+                categoryAdapter.categoryList(categories)
+            }
+        })
     }
 
     private fun observeLiveData() {
