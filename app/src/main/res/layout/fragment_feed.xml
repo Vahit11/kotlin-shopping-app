@@ -5,25 +5,39 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/dark_two">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvCategory"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toTopOf="@id/swipeRefreshLayout"
+            app:layout_constraintBottom_toTopOf="@id/view"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="3dp"
+            android:background="@android:color/white"
+            app:layout_constraintBottom_toTopOf="@id/swipeRefreshLayout"
+            app:layout_constraintTop_toBottomOf="@id/rvCategory" />
 
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:id="@+id/swipeRefreshLayout"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_marginTop="2dp"
+            android:scrollbarSize="5dp"
+            android:scrollbars="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/rvCategory"
+            app:layout_constraintTop_toBottomOf="@id/view"
             tools:context=".view.FeedFragment">
 
             <androidx.constraintlayout.widget.ConstraintLayout

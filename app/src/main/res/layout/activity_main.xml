@@ -20,9 +20,12 @@
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
+        android:background="@color/dark_two"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
+        app:itemTextColor="@android:color/white"
+        app:itemIconTint="@android:color/white"
         app:menu="@menu/bottom_menu_navigation"
         app:layout_constraintBottom_toBottomOf="parent" />
 

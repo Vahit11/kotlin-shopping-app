@@ -7,4 +7,11 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- My Dark Colors -->
+    <color name="dark_one">#FEFEFE</color>
+    <color name="dark_two">#313742</color>
+    <color name="dark_three">#292E39</color>
+    <color name="dark_four">#2B2B2B</color>
+    <color name="dark_five">#05090D</color>
 </resources>
