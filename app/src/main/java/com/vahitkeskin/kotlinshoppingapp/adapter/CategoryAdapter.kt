@@ -3,33 +3,50 @@ package com.vahitkeskin.kotlinshoppingapp.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Callback
+import com.squareup.picasso.Picasso
 import com.vahitkeskin.kotlinshoppingapp.R
-import com.vahitkeskin.kotlinshoppingapp.databinding.ItemCategoryBinding
 import com.vahitkeskin.kotlinshoppingapp.model.Categories
+import kotlinx.android.synthetic.main.item_category.view.*
+import java.lang.Exception
 
-class CategoryAdapter(private val categoryArray: ArrayList<Categories>) :
+class CategoryAdapter(
+    private val categoryArray: ArrayList<Categories>, private val categoryListener: CategoryListener
+) :
     RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>(), CategoryClickListener {
 
-    class CategoryViewHolder(val view: ItemCategoryBinding) : RecyclerView.ViewHolder(view.root)
+    inner class CategoryViewHolder(view: View) : RecyclerView.ViewHolder(view)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        val view = DataBindingUtil.inflate<ItemCategoryBinding>(
-            inflater,
-            R.layout.item_category,
-            parent,
-            false
-        )
+        //val view = DataBindingUtil.inflate<ItemCategoryBinding>(inflater, R.layout.item_category, parent, false)
+        val view = inflater.inflate(R.layout.item_category, parent, false)
         return CategoryViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
-        println("Image : ${categoryArray[position].categoryImage}")
-        println("Name  : ${categoryArray[position].categoryName}")
-        holder.view.category = categoryArray[position]
-        holder.view.listener = this
+        val categoryList = categoryArray[position]
+        holder.itemView.tvCategoryName.text = categoryList.categoryName
+        holder.itemView.setOnClickListener {
+            categoryList.categoryName?.let { name ->
+                categoryListener.onCategoryClickListener(position, categoryList.categoryName)
+            }
+        }
+        Picasso.get().load(categoryList.categoryImage)
+            .fit()
+            .centerCrop()
+            .into(holder.itemView.ivCategoryImage, object : Callback {
+                override fun onSuccess() {
+                    holder.itemView.pbCategoryImage.isVisible = false
+                }
+
+                override fun onError(e: Exception?) {
+                    holder.itemView.pbCategoryImage.isVisible = true
+                }
+
+            })
     }
 
     override fun getItemCount(): Int {
@@ -42,8 +59,11 @@ class CategoryAdapter(private val categoryArray: ArrayList<Categories>) :
         notifyDataSetChanged()
     }
 
-    override fun onCategoryClicked(view: View) {
+    override fun onCategoryClicked(view: View) {}
 
+
+    interface CategoryListener {
+        fun onCategoryClickListener(position: Int,categoryName: String)
     }
 
 }

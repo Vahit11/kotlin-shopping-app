@@ -3,17 +3,17 @@
     <item
         android:id="@+id/homeFragment"
         android:icon="@drawable/ic_home_white"
-        android:title="Home Fragment" />
+        android:title="Home" />
     <item
         android:id="@+id/searchFragment"
         android:icon="@drawable/ic_search_white"
-        android:title="Search Fragment" />
+        android:title="Search" />
     <item
         android:id="@+id/basketFragment"
         android:icon="@drawable/ic_shopping_white"
-        android:title="Basket Fragment" />
+        android:title="Basket" />
     <item
         android:id="@+id/profileFragment"
         android:icon="@drawable/ic_person_white"
-        android:title="Profile Fragment" />
+        android:title="Profile" />
 </menu>

@@ -2,13 +2,10 @@ package com.vahitkeskin.kotlinshoppingapp.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.Navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.vahitkeskin.kotlinshoppingapp.R
 import com.vahitkeskin.kotlinshoppingapp.databinding.ActivityMainBinding
-import com.vahitkeskin.kotlinshoppingapp.services.ShoppingDatabase
-import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
@@ -21,12 +18,5 @@ class MainActivity : AppCompatActivity() {
 
         val navController = findNavController(this, R.id.fragment)
         binding.bottomNavigationView.setupWithNavController(navController)
-
-        /*
-        lifecycleScope.launch {
-            val shoppingDatabase = ShoppingDatabase(applicationContext).shoppingDao().getCountSize()
-            println("Count Size: $shoppingDatabase")
-        }
-        */
     }
 }

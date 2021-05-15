@@ -10,14 +10,16 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.vahitkeskin.kotlinshoppingapp.R
 import com.vahitkeskin.kotlinshoppingapp.adapter.CategoryAdapter
 import com.vahitkeskin.kotlinshoppingapp.adapter.ShoppingAdapter
+import com.vahitkeskin.kotlinshoppingapp.model.Shopping
 import com.vahitkeskin.kotlinshoppingapp.viewmodel.FeedViewModel
 import kotlinx.android.synthetic.main.fragment_feed.*
 
-class FeedFragment : Fragment() {
+class FeedFragment : Fragment(), CategoryAdapter.CategoryListener {
 
     private lateinit var viewModel: FeedViewModel
     private var shoppingAdapter = ShoppingAdapter(arrayListOf())
-    private var categoryAdapter = CategoryAdapter(arrayListOf())
+    private var categoryAdapter = CategoryAdapter(arrayListOf(), this)
+    private var mShopping: ArrayList<Shopping> = ArrayList()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,14 +35,14 @@ class FeedFragment : Fragment() {
         viewModel.refreshData()
         viewModel.getCategoryAPI()
 
-
         //Shopping
         shoppingList.layoutManager = LinearLayoutManager(context)
         shoppingList.adapter = shoppingAdapter
 
 
         //Category
-        rvCategory.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
+        rvCategory.layoutManager =
+            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         rvCategory.adapter = categoryAdapter
 
         swipeRefreshLayout.setOnRefreshListener {
@@ -56,7 +58,7 @@ class FeedFragment : Fragment() {
     }
 
     private fun observeLiveDataCategory() {
-        viewModel.categories.observe(viewLifecycleOwner, {categories ->
+        viewModel.categories.observe(viewLifecycleOwner, { categories ->
             categories.let {
                 categoryAdapter.categoryList(categories)
             }
@@ -71,7 +73,29 @@ class FeedFragment : Fragment() {
             }
 
         })
+        notSuccess()
 
+    }
+
+    override fun onCategoryClickListener(position: Int, categoryName: String) {
+        viewModel.shopping.observe(viewLifecycleOwner, { shopping ->
+            shopping?.let {
+                mShopping.clear()
+                for (shoppingItem in shopping) {
+                    if (shoppingItem.category.equals(categoryName, ignoreCase = true)) {
+                        mShopping.add(shoppingItem)
+                    }
+                }
+                shoppingAdapter = ShoppingAdapter(mShopping)
+                shoppingList.adapter = shoppingAdapter
+                shoppingAdapter.notifyDataSetChanged()
+            }
+
+        })
+        notSuccess()
+    }
+
+    private fun notSuccess() {
         viewModel.shoppingError.observe(viewLifecycleOwner, { error ->
             error?.let {
                 if (it) {
@@ -94,4 +118,5 @@ class FeedFragment : Fragment() {
             }
         })
     }
+
 }
