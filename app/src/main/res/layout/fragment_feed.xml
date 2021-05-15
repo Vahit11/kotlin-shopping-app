@@ -24,8 +24,19 @@
             android:layout_marginTop="2dp"
             android:layout_marginBottom="3dp"
             android:background="@android:color/white"
-            app:layout_constraintBottom_toTopOf="@id/swipeRefreshLayout"
+            app:layout_constraintBottom_toTopOf="@id/tvResult"
             app:layout_constraintTop_toBottomOf="@id/rvCategory" />
+
+        <TextView
+            android:id="@+id/tvResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@id/swipeRefreshLayout"
+            app:layout_constraintTop_toBottomOf="@id/view" />
 
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:id="@+id/swipeRefreshLayout"
@@ -37,7 +48,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/view"
+            app:layout_constraintTop_toBottomOf="@id/tvResult"
             tools:context=".view.FeedFragment">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -57,7 +68,7 @@
                     android:id="@+id/shoppingError"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Error! Try Again"
+                    android:text="@string/error_try_again"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -73,6 +84,9 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
+
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>

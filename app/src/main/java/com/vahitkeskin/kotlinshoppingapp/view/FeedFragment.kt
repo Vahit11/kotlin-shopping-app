@@ -1,11 +1,15 @@
 package com.vahitkeskin.kotlinshoppingapp.view
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.vahitkeskin.kotlinshoppingapp.R
 import com.vahitkeskin.kotlinshoppingapp.adapter.CategoryAdapter
@@ -36,7 +40,7 @@ class FeedFragment : Fragment(), CategoryAdapter.CategoryListener {
         viewModel.getCategoryAPI()
 
         //Shopping
-        shoppingList.layoutManager = LinearLayoutManager(context)
+        shoppingList.layoutManager = GridLayoutManager(context, 2)
         shoppingList.adapter = shoppingAdapter
 
 
@@ -71,7 +75,6 @@ class FeedFragment : Fragment(), CategoryAdapter.CategoryListener {
                 shoppingList.visibility = View.VISIBLE
                 shoppingAdapter.updateShoppingList(shopping)
             }
-
         })
         notSuccess()
 
@@ -86,6 +89,8 @@ class FeedFragment : Fragment(), CategoryAdapter.CategoryListener {
                         mShopping.add(shoppingItem)
                     }
                 }
+                tvResult.isVisible = true
+                tvResult.text = " \"$categoryName\" ${mShopping.size} Result Found"
                 shoppingAdapter = ShoppingAdapter(mShopping)
                 shoppingList.adapter = shoppingAdapter
                 shoppingAdapter.notifyDataSetChanged()
