@@ -2,6 +2,7 @@ package com.vahitkeskin.kotlinshoppingapp.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.WindowManager
 import androidx.navigation.Navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.vahitkeskin.kotlinshoppingapp.R
@@ -18,5 +19,7 @@ class MainActivity : AppCompatActivity() {
 
         val navController = findNavController(this, R.id.fragment)
         binding.bottomNavigationView.setupWithNavController(navController)
+
+        window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
     }
 }

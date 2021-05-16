@@ -6,6 +6,7 @@ import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import com.vahitkeskin.kotlinshoppingapp.R
 import jp.wasabeef.glide.transformations.BlurTransformation
@@ -14,7 +15,9 @@ fun ImageView.downloadFromUrl(url: String?, progressDrawable: CircularProgressDr
 
     val options = RequestOptions().placeholder(progressDrawable).error(R.mipmap.ic_launcher_round)
 
-    Glide.with(context).setDefaultRequestOptions(options).load(url).centerCrop().into(this)
+    Glide.with(context).setDefaultRequestOptions(options).load(url)
+        .centerCrop()
+        .into(this)
 }
 
 fun placeHolderProgressBar(context: Context): CircularProgressDrawable {

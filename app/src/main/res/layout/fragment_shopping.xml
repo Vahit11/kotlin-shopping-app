@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
@@ -9,72 +10,198 @@
             type="com.vahitkeskin.kotlinshoppingapp.model.Shopping" />
     </data>
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/dark_two"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
         tools:context=".view.ShoppingFragment">
 
-        <ImageView
-            android:id="@+id/shoppingImage"
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:downloadUrl="@{selectedShopping.image}"
-            android:minHeight="200dp"
-            android:paddingTop="10dp"
-            android:scaleType="fitCenter" />
+            android:layout_margin="20dp"
+            app:cardBackgroundColor="@color/dark_three"
+            app:cardCornerRadius="20dp">
 
-        <TextView
-            android:id="@+id/shoppingName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/shoppingImage"
-            android:layout_centerHorizontal="true"
-            android:layout_margin="7dp"
-            android:text="@{selectedShopping.name}"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="10dp">
 
-        <TextView
-            android:id="@+id/shoppingCapital"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/shoppingName"
-            android:layout_centerHorizontal="true"
-            android:layout_margin="7dp"
-            android:text="@{selectedShopping.price}"
-            android:textSize="16sp" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/shoppingRegion"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/shoppingCapital"
-            android:layout_centerHorizontal="true"
-            android:layout_margin="7dp"
-            android:text="@{selectedShopping.category}"
-            android:textSize="16sp" />
+                    <ImageView
+                        android:id="@+id/shoppingImage"
+                        android:layout_width="200dp"
+                        android:layout_height="200dp"
+                        android:layout_margin="20dp"
+                        android:background="@drawable/category_item_border"
+                        android:downloadUrl="@{selectedShopping.image}"
+                        android:padding="10dp"
+                        android:scaleType="fitCenter" />
 
-        <TextView
-            android:id="@+id/shoppingCurruncy"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/shoppingRegion"
-            android:layout_centerHorizontal="true"
-            android:layout_margin="7dp"
-            android:text="@{selectedShopping.stock}"
-            android:textSize="16sp" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/shoppingLanguage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/shoppingCurruncy"
-            android:layout_centerHorizontal="true"
-            android:layout_margin="7dp"
-            android:text="@{selectedShopping.id}"
-            android:textSize="16sp" />
+                        <TextView
+                            android:id="@+id/shoppingRegion"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="7dp"
+                            android:text="@{selectedShopping.category}"
+                            android:textColor="@android:color/white"
+                            android:textSize="20sp" />
 
+                        <TextView
+                            android:id="@+id/shoppingName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="7dp"
+                            android:text="@{selectedShopping.name}"
+                            android:textColor="@android:color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
 
-    </RelativeLayout>
+                        <TextView
+                            android:id="@+id/shoppingCapital"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="7dp"
+                            android:text="@{@string/data_binding_price(selectedShopping.price)}"
+                            android:textColor="@android:color/white"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/shoppingCurruncy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:drawableStart="@drawable/ic_error_red"
+                    android:drawablePadding="5dp"
+                    android:gravity="center_vertical"
+                    android:text="@{@string/data_binding_stock(selectedShopping.stock)}"
+                    android:textColor="#FF0000"
+                    android:textSize="14sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnShoppingDecrease"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@android:color/white"
+                        android:minWidth="0dp"
+                        android:minHeight="0dp"
+                        android:text="-"
+                        android:textColor="@android:color/black" />
+
+                    <EditText
+                        android:id="@+id/etShoppingItem"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:text="1"
+                        android:textColor="@android:color/white" />
+
+                    <Button
+                        android:id="@+id/btnShoppingIncrease"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@android:color/white"
+                        android:minWidth="0dp"
+                        android:minHeight="0dp"
+                        android:text="+"
+                        android:textColor="@android:color/black" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:background="@drawable/category_item_border">
+
+                        <Button
+                            android:id="@+id/btnShoppingAddToBasket"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:drawableLeft="@drawable/ic_shopping_white"
+                            android:text="Add To Basket"
+                            android:textColor="@android:color/white" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:gravity="center_vertical|end"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvStarPointSize"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="10dp"
+                        android:gravity="center"
+                        android:text="123"
+                        android:textStyle="bold"
+                        android:textSize="15sp"
+                        android:textColor="#D1D1D1" />
+
+                    <RatingBar
+                        android:id="@+id/rbStarPoint"
+                        style="?android:attr/ratingBarStyleSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:progressBackgroundTint="#D1D1D1"
+                        android:progressTint="#FFFF00" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="Comment"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="5dp"
+                        android:textColor="#D1D1D1" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="(123)"
+                        android:textColor="#D1D1D1" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
 </layout>
