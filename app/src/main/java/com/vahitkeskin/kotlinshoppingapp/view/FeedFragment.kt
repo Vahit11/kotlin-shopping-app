@@ -1,12 +1,10 @@
 package com.vahitkeskin.kotlinshoppingapp.view
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
@@ -42,7 +40,6 @@ class FeedFragment : Fragment(), CategoryAdapter.CategoryListener {
         //Shopping
         shoppingList.layoutManager = GridLayoutManager(context, 2)
         shoppingList.adapter = shoppingAdapter
-
 
         //Category
         rvCategory.layoutManager =

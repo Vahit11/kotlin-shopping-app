@@ -89,11 +89,13 @@ dependencies {
     implementation "com.android.support:palette-v7:$supportVersion"
     implementation "com.android.support:design:$supportVersion"
 
-    implementation "androidx.preference:preference:$preferencesVersion"
+    implementation "androidx.preference:preference-ktx:$preferencesVersion"
 
     implementation 'jp.wasabeef:glide-transformations:4.3.0'
     implementation 'jp.co.cyberagent.android:gpuimage:2.1.0'
 
     implementation "androidx.cardview:cardview:1.0.0"
+
+    implementation 'com.github.moondroid.coverflow:library:1.0'
 
 }

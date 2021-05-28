@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:coverflow="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="selectedShopping"
             type="com.vahitkeskin.kotlinshoppingapp.model.Shopping" />
@@ -33,53 +35,52 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="horizontal">
+                    android:orientation="vertical"
+                    android:padding="20dp">
 
-                    <ImageView
-                        android:id="@+id/shoppingImage"
-                        android:layout_width="200dp"
-                        android:layout_height="200dp"
-                        android:layout_margin="20dp"
-                        android:background="@drawable/category_item_border"
-                        android:downloadUrl="@{selectedShopping.image}"
-                        android:padding="10dp"
-                        android:scaleType="fitCenter" />
+                    <it.moondroid.coverflow.components.ui.containers.FeatureCoverFlow
+                        android:id="@+id/coverFlow"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        coverflow:coverHeight="100dp"
+                        coverflow:coverWidth="100dp"
+                        coverflow:maxScaleFactor="1.5"
+                        coverflow:reflectionGap="0px"
+                        coverflow:rotationThreshold="0.5"
+                        coverflow:scalingThreshold="0.5"
+                        coverflow:spacing="0.6" />
 
-                    <LinearLayout
+                    <TextSwitcher
+                        android:id="@+id/title"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:paddingBottom="16dp" />
 
-                        <TextView
-                            android:id="@+id/shoppingRegion"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="7dp"
-                            android:text="@{selectedShopping.category}"
-                            android:textColor="@android:color/white"
-                            android:textSize="20sp" />
 
-                        <TextView
-                            android:id="@+id/shoppingName"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="7dp"
-                            android:text="@{selectedShopping.name}"
-                            android:textColor="@android:color/white"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
+                    <TextView
+                        android:id="@+id/shoppingRegion"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{selectedShopping.category}"
+                        android:textColor="@android:color/white"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
 
-                        <TextView
-                            android:id="@+id/shoppingCapital"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="7dp"
-                            android:text="@{@string/data_binding_price(selectedShopping.price)}"
-                            android:textColor="@android:color/white"
-                            android:textSize="16sp" />
+                    <TextView
+                        android:id="@+id/shoppingName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{selectedShopping.name}"
+                        android:textColor="@android:color/white"
+                        android:textSize="20sp" />
 
-                    </LinearLayout>
+                    <TextView
+                        android:id="@+id/shoppingCapital"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{@string/data_binding_price(selectedShopping.price)}"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp" />
 
                 </LinearLayout>
 
@@ -98,7 +99,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="20dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
                     android:gravity="center_vertical"
                     android:orientation="horizontal">
 
@@ -166,9 +168,9 @@
                         android:layout_marginEnd="10dp"
                         android:gravity="center"
                         android:text="123"
-                        android:textStyle="bold"
+                        android:textColor="#D1D1D1"
                         android:textSize="15sp"
-                        android:textColor="#D1D1D1" />
+                        android:textStyle="bold" />
 
                     <RatingBar
                         android:id="@+id/rbStarPoint"
@@ -182,10 +184,10 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:text="Comment"
                         android:layout_marginStart="5dp"
                         android:layout_marginEnd="5dp"
+                        android:gravity="center"
+                        android:text="Comment"
                         android:textColor="#D1D1D1" />
 
                     <TextView
