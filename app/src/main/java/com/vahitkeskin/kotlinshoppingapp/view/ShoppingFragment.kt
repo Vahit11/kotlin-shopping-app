@@ -4,16 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.core.widget.addTextChangedListener
-import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
-import com.vahitkeskin.kotlinshoppingapp.R
 import com.vahitkeskin.kotlinshoppingapp.databinding.FragmentShoppingBinding
 import com.vahitkeskin.kotlinshoppingapp.viewmodel.ShoppingViewModel
-import kotlinx.android.synthetic.main.fragment_shopping.*
-import kotlinx.coroutines.delay
 
 class ShoppingFragment : Fragment() {
 
@@ -27,10 +21,13 @@ class ShoppingFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        dataBinding =
-            DataBindingUtil.inflate(inflater, R.layout.fragment_shopping, container, false)
+        dataBinding = FragmentShoppingBinding.inflate(inflater)
+        init()
+        return dataBinding.root
+    }
 
-        val randomPoint = (0 until 50).random()/ 10.toFloat()
+    private fun init() {
+        val randomPoint = (0 until 50).random() / 10.toFloat()
         dataBinding.rbStarPoint.rating = randomPoint
         dataBinding.tvStarPointSize.text = randomPoint.toString()
 
@@ -50,8 +47,6 @@ class ShoppingFragment : Fragment() {
             basketItem = 1
             dataBinding.etShoppingItem.setText("$basketItem")
         }
-
-        return dataBinding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -59,7 +54,6 @@ class ShoppingFragment : Fragment() {
 
         arguments?.let {
             shoppingUuid = ShoppingFragmentArgs.fromBundle(it).shoppingUuid
-            println("shoppingUuid: $shoppingUuid")
         }
 
         viewModel = ViewModelProviders.of(this).get(ShoppingViewModel::class.java)
