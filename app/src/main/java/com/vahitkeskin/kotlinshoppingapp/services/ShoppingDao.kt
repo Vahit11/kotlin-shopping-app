@@ -14,7 +14,7 @@ interface ShoppingDao {
     @Query("SELECT * FROM shopping")
     suspend fun getAllShopping(): List<Shopping>
 
-    @Query("SELECT * FROM shopping WHERE uuid = :shoppingId")
+    @Query("SELECT * FROM shopping WHERE id = :shoppingId")
     suspend fun getShopping(shoppingId: Int): Shopping
 
     @Query("DELETE FROM shopping")

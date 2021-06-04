@@ -7,9 +7,10 @@ import com.google.gson.annotations.SerializedName
 
 @Entity
 data class Shopping(
+    @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
     @SerializedName("id")
-    val id: String?,
+    val id: Int? = null,
     @ColumnInfo(name = "name")
     @SerializedName("name")
     val name: String?,
@@ -24,9 +25,5 @@ data class Shopping(
     val stock: String?,
     @ColumnInfo(name = "image")
     @SerializedName("image")
-    val image: String?,) {
-
-    @PrimaryKey(autoGenerate = true)
-    var uuid: Int = 0
-
-}
+    val image: String?,
+)

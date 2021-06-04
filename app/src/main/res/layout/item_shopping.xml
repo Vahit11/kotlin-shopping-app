@@ -36,7 +36,7 @@
                     android:id="@+id/shoppingUuidText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{String.valueOf(shopping.uuid)}"
+                    android:text="@{String.valueOf(shopping.id)}"
                     android:visibility="gone" />
 
                 <ImageView

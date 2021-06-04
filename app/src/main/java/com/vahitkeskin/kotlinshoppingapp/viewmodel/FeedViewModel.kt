@@ -101,13 +101,7 @@ class FeedViewModel(application: Application) : BaseViewModel(application) {
         launch {
             val dao = ShoppingDatabase(getApplication()).shoppingDao()
             dao.deleteAllShopping()
-            val listLong = dao.insertAll(*list.toTypedArray()) // -> list individual
-            var i = 0
-            while (i < listLong.size) {
-                list[i].uuid = listLong[i].toInt()
-                i += 1
-            }
-
+            dao.insertAll(*list.toTypedArray()) // -> list individual
             showShopping(list)
         }
 

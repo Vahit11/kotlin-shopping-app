@@ -14,7 +14,6 @@ import com.vahitkeskin.kotlinshoppingapp.R
 import com.vahitkeskin.kotlinshoppingapp.model.Categories
 import kotlinx.android.synthetic.main.item_category.view.*
 
-
 class CategoryAdapter(
     private val categoryArray: ArrayList<Categories>, private val categoryListener: CategoryListener
 ) :
