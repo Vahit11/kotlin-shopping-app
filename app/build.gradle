@@ -106,6 +106,8 @@ dependencies {
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.23'
     //CARD VIEW
     implementation "androidx.cardview:cardview:1.0.0"
+    //noinspection GradleCompatible
+    implementation 'com.android.support:design:27.1.1'
 
     //HILT
     implementation "com.google.dagger:hilt-android:$hilt_version"
