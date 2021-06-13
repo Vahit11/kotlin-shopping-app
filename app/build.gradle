@@ -118,4 +118,5 @@ dependencies {
     implementation 'jp.co.cyberagent.android:gpuimage:2.1.0'
     implementation 'com.github.moondroid.coverflow:library:1.0'
 
+
 }
