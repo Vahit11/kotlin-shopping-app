@@ -45,7 +45,7 @@ class FeedViewModel(application: Application) : BaseViewModel(application) {
         launch {
             val shopping = ShoppingDatabase(getApplication()).shoppingDao().getAllShopping()
             showShopping(shopping)
-            Toast.makeText(getApplication(), "Shopping From SQLite", Toast.LENGTH_LONG).show()
+            println("Shopping From SQLite")
         }
     }
 
@@ -59,8 +59,7 @@ class FeedViewModel(application: Application) : BaseViewModel(application) {
                 .subscribeWith(object : DisposableSingleObserver<List<Shopping>>() {
                     override fun onSuccess(t: List<Shopping>) {
                         storeInSQLite(t)
-                        Toast.makeText(getApplication(), "Shopping From API", Toast.LENGTH_LONG)
-                            .show()
+                        println("Shopping From API")
                     }
 
                     override fun onError(e: Throwable) {

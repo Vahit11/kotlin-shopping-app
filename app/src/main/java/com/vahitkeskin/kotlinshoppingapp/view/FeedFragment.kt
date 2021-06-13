@@ -60,8 +60,8 @@ class FeedFragment : Fragment(), CategoryAdapter.CategoryListener {
 
     private fun observeLiveDataCategory() {
         viewModel.categories.observe(viewLifecycleOwner, { categories ->
-            categories.let {
-                categoryAdapter.categoryList(categories)
+            categories?.let {
+                categoryAdapter.categoryList(it)
             }
         })
     }

@@ -49,7 +49,7 @@ class CategoryAdapter(
         holder.itemView.tvCategoryName.text = categoryList.categoryName
         holder.itemView.setOnClickListener {
             categoryList.categoryName?.let { name ->
-                categoryListener.onCategoryClickListener(position, categoryList.categoryName)
+                categoryListener.onCategoryClickListener(position, name)
             }
         }
         Picasso.get().load(categoryList.categoryImage)

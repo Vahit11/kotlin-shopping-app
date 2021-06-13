@@ -1,49 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <ImageView
-        android:id="@+id/ivSearchFragmentProduct"
-        android:layout_width="150dp"
-        android:layout_height="150dp" />
+    <data>
+
+        <variable
+            name="search"
+            type="com.vahitkeskin.kotlinshoppingapp.model.Shopping" />
+
+        <variable
+            name="listener"
+            type="com.vahitkeskin.kotlinshoppingapp.adapter.ShoppingClickListener" />
+    </data>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:background="@color/dark_three"
+        android:onClick="@{listener::onShoppingClicked}"
+        android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/tvSearchFragmentProductName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:ellipsize="end"
-            android:maxLines="1"
-            android:textSize="24sp"
-            android:textStyle="bold" />
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_margin="5dp"
+            android:downloadUrl="@{search.image}" />
 
-        <TextView
-            android:id="@+id/tvSearchFragmentProductPrice"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:ellipsize="end"
-            android:maxLines="1"
-            android:textSize="20sp" />
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tvSearchFragmentProductStock"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:ellipsize="end"
-            android:maxLines="1"
-            android:textSize="20sp" />
+            <TextView
+                android:id="@+id/searchCategoryItem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{String.valueOf(search.id)}"
+                android:visibility="gone" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@{search.name}"
+                android:textColor="@android:color/white"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@{@string/data_binding_price(search.price)}"
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@{search.stock}"
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
+
+        </LinearLayout>
 
     </LinearLayout>
 
-</LinearLayout>
+</layout>

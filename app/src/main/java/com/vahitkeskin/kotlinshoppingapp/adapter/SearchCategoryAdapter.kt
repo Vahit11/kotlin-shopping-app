@@ -3,14 +3,14 @@ package com.vahitkeskin.kotlinshoppingapp.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.vahitkeskin.kotlinshoppingapp.R
 import com.vahitkeskin.kotlinshoppingapp.model.Categories
 import kotlinx.android.synthetic.main.search_fragment_left_fab.view.*
 
 class SearchCategoryAdapter(
-    private val categoryItem: ArrayList<Categories>
+    private val categoryItem: ArrayList<Categories>,
+    private val searchProductListener: SearchProductListener
 ) : RecyclerView.Adapter<SearchCategoryAdapter.SearchCategoryViewHolder>() {
 
     class SearchCategoryViewHolder(view: View) : RecyclerView.ViewHolder(view)
@@ -24,9 +24,10 @@ class SearchCategoryAdapter(
     override fun onBindViewHolder(holder: SearchCategoryViewHolder, position: Int) {
         val categoryItemList = categoryItem[position]
 
-        holder.itemView.setOnLongClickListener {
-            Toast.makeText(holder.itemView.context,categoryItemList.categoryName,Toast.LENGTH_LONG).show()
-            true
+        holder.itemView.setOnClickListener {
+            categoryItemList.categoryName?.let {searchCategory->
+                searchProductListener.onSearchProductListener(position,searchCategory)
+            }
         }
 
         when (categoryItemList.categoryName) {
@@ -49,6 +50,10 @@ class SearchCategoryAdapter(
         categoryItem.clear()
         categoryItem.addAll(newFabCategoryList)
         notifyDataSetChanged()
+    }
+
+    interface SearchProductListener {
+        fun onSearchProductListener(position: Int,searchProductName: String)
     }
 
 }
