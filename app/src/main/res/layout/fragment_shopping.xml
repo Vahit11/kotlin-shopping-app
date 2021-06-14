@@ -12,6 +12,7 @@
     </data>
 
     <LinearLayout
+        android:id="@+id/llShopping"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/dark_two"
@@ -55,7 +56,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:paddingBottom="16dp" />
-
 
                     <TextView
                         android:id="@+id/shoppingRegion"
@@ -200,6 +200,12 @@
                 </LinearLayout>
 
             </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvSnackBarPos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"/>
 
         </androidx.cardview.widget.CardView>
 

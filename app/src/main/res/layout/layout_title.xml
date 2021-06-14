@@ -6,6 +6,9 @@
     android:layout_centerHorizontal="true"
     android:background="@drawable/label_bg"
     android:gravity="center"
+    android:textColor="@android:color/white"
+    android:textSize="20sp"
+    android:textStyle="bold"
     android:padding="8dp"
     android:textAppearance="?android:attr/textAppearanceSmallInverse"
     android:visibility="gone" />

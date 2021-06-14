@@ -17,7 +17,7 @@
         android:id="@+id/pbLayoutItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"/>
+        android:layout_centerInParent="true" />
 
     <TextView
         android:id="@+id/label"
@@ -27,8 +27,8 @@
         android:layout_centerHorizontal="true"
         android:background="@drawable/label_bg"
         android:gravity="center"
+        android:textStyle="bold"
         android:padding="8dp"
-        android:textAppearance="?android:attr/textAppearanceSmallInverse"
-         />
+        android:textAppearance="?android:attr/textAppearanceSmallInverse" />
 
 </RelativeLayout>

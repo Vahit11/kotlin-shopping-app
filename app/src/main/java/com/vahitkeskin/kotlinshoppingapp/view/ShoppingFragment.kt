@@ -1,5 +1,6 @@
 package com.vahitkeskin.kotlinshoppingapp.view
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,9 +9,9 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.TextView
 import android.widget.Toast
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
+import com.google.android.material.snackbar.Snackbar
 import com.vahitkeskin.kotlinshoppingapp.R
 import com.vahitkeskin.kotlinshoppingapp.adapter.MovieAdapter
 import com.vahitkeskin.kotlinshoppingapp.databinding.FragmentShoppingBinding
@@ -25,8 +26,7 @@ class ShoppingFragment : Fragment() {
     private var shoppingUuid = 0
     private lateinit var binding: FragmentShoppingBinding
     private var basketItem = 1
-
-    //SwipeImageItem
+    private var basketItemStock = 0
     private var movieAdapter: MovieAdapter? = null
     private var movieList: MutableList<Products> = arrayListOf()
 
@@ -41,10 +41,10 @@ class ShoppingFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         init()
     }
 
+    @SuppressLint("InflateParams")
     private fun init() {
 
         arguments?.let {
@@ -54,16 +54,17 @@ class ShoppingFragment : Fragment() {
         viewModel = ViewModelProviders.of(this).get(ShoppingViewModel::class.java)
         viewModel.getDataFromRoom(shoppingUuid)
 
-        initData()
-        observeLiteData()
-
-        val randomPoint = (0 until 50).random() / 10.toFloat()
+        val randomPoint = (40 until 50).random() / 10.toFloat()
         binding.rbStarPoint.rating = randomPoint
         binding.tvStarPointSize.text = randomPoint.toString()
 
         binding.btnShoppingIncrease.setOnClickListener {
-            basketItem++
-            binding.etShoppingItem.setText("$basketItem")
+            if (basketItem >= basketItemStock) {
+                largeOfProductLargeStock()
+            } else {
+                basketItem++
+                binding.etShoppingItem.setText("$basketItem")
+            }
         }
 
         binding.btnShoppingDecrease.setOnClickListener {
@@ -74,8 +75,7 @@ class ShoppingFragment : Fragment() {
         }
 
         binding.btnShoppingAddToBasket.setOnClickListener {
-            basketItem = 1
-            binding.etShoppingItem.setText("$basketItem")
+            productSavedDB()
         }
 
         binding.title.setFactory {
@@ -89,28 +89,28 @@ class ShoppingFragment : Fragment() {
         binding.title.inAnimation = myIn
         binding.title.outAnimation = myOut
 
-        context?.let {
-            movieAdapter = MovieAdapter(movieList, it)
-            binding.coverFlow.adapter = movieAdapter
-            binding.coverFlow.setOnScrollPositionListener(object :
-                FeatureCoverFlow.OnScrollPositionListener {
-                override fun onScrolledToPosition(position: Int) {
-                    binding.title.setText(movieList[position].name)
-                }
+        movieAdapter = MovieAdapter(movieList, requireContext())
+        binding.coverFlow.adapter = movieAdapter
+        binding.coverFlow.setOnScrollPositionListener(object :
+            FeatureCoverFlow.OnScrollPositionListener {
+            override fun onScrolledToPosition(position: Int) {
+                binding.title.setText(movieList[position].name)
+            }
 
-                override fun onScrolling() {
-                    println("Not yet implemented")
-                }
+            override fun onScrolling() {
+                println("Not yet implemented")
+            }
 
-            })
-        }
+        })
+        selectedProductImages()
+        observeLiteData()
     }
 
-    private fun initData() {
+    private fun selectedProductImages() {
         for (index in 1..10) {
             movieList.add(
                 Products(
-                    "Product$index",
+                    "Product-$index",
                     "http://www.vahitkeskin.com/Shopping/image$index.jpg"
                 )
             )
@@ -121,7 +121,22 @@ class ShoppingFragment : Fragment() {
         viewModel.shoppingLiveData.observe(viewLifecycleOwner, { shopping ->
             shopping?.let {
                 binding.selectedShopping = shopping
+                basketItemStock = it.stock.toString().toInt()
             }
         })
     }
+
+    private fun largeOfProductLargeStock() {
+        Snackbar.make(binding.llShopping,"There are only $basketItemStock items in stock",Snackbar.LENGTH_LONG).show()
+    }
+
+    private fun productSavedDB() {
+        if (binding.etShoppingItem.text.toString().toInt() > basketItemStock) {
+            largeOfProductLargeStock()
+        } else {
+            Toast.makeText(context, "Item size new: $basketItem", Toast.LENGTH_LONG).show()
+            //Saved ROOM
+        }
+    }
+
 }
