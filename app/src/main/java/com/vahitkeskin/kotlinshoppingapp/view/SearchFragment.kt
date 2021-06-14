@@ -76,6 +76,7 @@ class SearchFragment : Fragment(), SearchCategoryAdapter.SearchProductListener {
     }
 
     private fun observeLiveDataProducts() {
+        binding.tvSearchItemResult.isVisible = false
         binding.ibSearchEditTextClear.isVisible = false
         viewModel.shopping.observe(viewLifecycleOwner, { shoppingList ->
             shoppingList?.let { list ->

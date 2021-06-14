@@ -31,12 +31,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
+            android:background="@android:color/white"
             app:cardCornerRadius="10dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp">
+                android:layout_margin="5dp"
+                android:background="@android:color/white">
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
@@ -105,13 +107,12 @@
             app:layout_constraintBottom_toTopOf="@id/swipeRefreshLayout"
             app:layout_constraintTop_toBottomOf="@id/view" />
 
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_search_fragment_products"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:scrollbars="vertical" />
 
     </LinearLayout>
-
 
 </LinearLayout>

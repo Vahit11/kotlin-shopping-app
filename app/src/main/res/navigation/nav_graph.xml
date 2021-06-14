@@ -22,6 +22,9 @@
         <action
             android:id="@+id/action_searchFragment_to_basketFragment"
             app:destination="@id/basketFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_shoppingFragment2"
+            app:destination="@id/shoppingFragment2" />
     </fragment>
     <fragment
         android:id="@+id/basketFragment"
@@ -37,4 +40,18 @@
         android:name="com.vahitkeskin.kotlinshoppingapp.view.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/shoppingFragment2"
+        android:name="com.vahitkeskin.kotlinshoppingapp.view.ShoppingFragment"
+        android:label="ShoppingFragment"
+        tools:layout="@layout/fragment_shopping">
+        <action
+            android:id="@+id/action_shoppingFragment2_to_searchFragment"
+            app:destination="@id/searchFragment" />
+        <argument
+            android:name="selected_Product_Id"
+            android:defaultValue="0"
+            app:argType="integer" />
+
+    </fragment>
 </navigation>

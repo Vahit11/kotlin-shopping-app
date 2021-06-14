@@ -14,8 +14,7 @@ import androidx.lifecycle.ViewModelProviders
 import com.vahitkeskin.kotlinshoppingapp.R
 import com.vahitkeskin.kotlinshoppingapp.adapter.MovieAdapter
 import com.vahitkeskin.kotlinshoppingapp.databinding.FragmentShoppingBinding
-import com.vahitkeskin.kotlinshoppingapp.model.Movie
-import com.vahitkeskin.kotlinshoppingapp.model.Shopping
+import com.vahitkeskin.kotlinshoppingapp.model.Products
 import com.vahitkeskin.kotlinshoppingapp.viewmodel.ShoppingViewModel
 import it.moondroid.coverflow.components.ui.containers.FeatureCoverFlow
 
@@ -29,7 +28,7 @@ class ShoppingFragment : Fragment() {
 
     //SwipeImageItem
     private var movieAdapter: MovieAdapter? = null
-    private var movieList: MutableList<Movie> = arrayListOf()
+    private var movieList: MutableList<Products> = arrayListOf()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -44,20 +43,19 @@ class ShoppingFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         init()
+    }
+
+    private fun init() {
 
         arguments?.let {
-            shoppingUuid = ShoppingFragmentArgs.fromBundle(it).shoppingUuid
+            shoppingUuid = ShoppingFragmentArgs.fromBundle(it).selectedProductId
         }
 
         viewModel = ViewModelProviders.of(this).get(ShoppingViewModel::class.java)
         viewModel.getDataFromRoom(shoppingUuid)
 
+        initData()
         observeLiteData()
-    }
-
-    private fun init() {
-
-
 
         val randomPoint = (0 until 50).random() / 10.toFloat()
         binding.rbStarPoint.rating = randomPoint
@@ -79,8 +77,6 @@ class ShoppingFragment : Fragment() {
             basketItem = 1
             binding.etShoppingItem.setText("$basketItem")
         }
-
-        initData()
 
         binding.title.setFactory {
             val inflater: LayoutInflater = LayoutInflater.from(context)
@@ -113,7 +109,7 @@ class ShoppingFragment : Fragment() {
     private fun initData() {
         for (index in 1..10) {
             movieList.add(
-                Movie(
+                Products(
                     "Product$index",
                     "http://www.vahitkeskin.com/Shopping/image$index.jpg"
                 )

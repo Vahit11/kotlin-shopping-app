@@ -23,7 +23,7 @@
             android:id="@+id/action_shoppingFragment_to_feedFragment"
             app:destination="@id/feedFragment" />
         <argument
-            android:name="shopping_Uuid"
+            android:name="selected_Product_Id"
             android:defaultValue="0"
             app:argType="integer" />
     </fragment>

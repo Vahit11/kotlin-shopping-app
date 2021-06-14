@@ -12,19 +12,19 @@ import androidx.core.view.isVisible
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 import com.vahitkeskin.kotlinshoppingapp.R
-import com.vahitkeskin.kotlinshoppingapp.model.Movie
+import com.vahitkeskin.kotlinshoppingapp.model.Products
 import java.lang.Exception
 
 class MovieAdapter(
-    private val movieList: List<Movie>,
+    private val productsList: List<Products>,
     private val mContext: Context
 ) : BaseAdapter() {
     override fun getCount(): Int {
-        return movieList.size
+        return productsList.size
     }
 
     override fun getItem(position: Int): Any {
-        return movieList[position]
+        return productsList[position]
     }
 
     override fun getItemId(position: Int): Long {
@@ -39,7 +39,7 @@ class MovieAdapter(
             val image: ImageView = rowView.findViewById(R.id.image)
             val progressBar: ProgressBar = rowView.findViewById(R.id.pbLayoutItem)
 
-            Picasso.get().load(movieList[position].imageURL).into(image,object: Callback {
+            Picasso.get().load(productsList[position].imageURL).into(image,object: Callback {
                 override fun onSuccess() {
                     progressBar.isVisible = false
                 }
@@ -50,7 +50,7 @@ class MovieAdapter(
 
             })
 
-            name.text = movieList[position].name
+            name.text = productsList[position].name
         }
         return rowView
     }
