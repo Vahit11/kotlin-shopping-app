@@ -111,7 +111,7 @@ class ShoppingFragment : Fragment() {
             movieList.add(
                 Products(
                     "Product-$index",
-                    "http://www.vahitkeskin.com/Shopping/image$index.jpg"
+                    "https://raw.githubusercontent.com/Vahit11/kotlin-shopping-app/master/Shopping/image$index.jpg"
                 )
             )
         }
