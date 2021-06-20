@@ -1,0 +1,482 @@
+[
+  {
+    "id": 1,
+    "name": "Buzdolabı",
+    "category": "BeyazEsya",
+    "price": "3000",
+    "stock": "26",
+    "image": "http://www.vahitkeskin.com/Shopping/image1.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Plazma Televizyon",
+    "category": "Televizyon",
+    "price": "2500",
+    "stock": "86",
+    "image": "http://www.vahitkeskin.com/Shopping/image2.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Masaüstü Bilgisayar",
+    "category": "Bilgisayar",
+    "price": "6000",
+    "stock": "8",
+    "image": "http://www.vahitkeskin.com/Shopping/image3.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Laptop",
+    "category": "Bilgisayar",
+    "price": "4500",
+    "stock": "59",
+    "image": "http://www.vahitkeskin.com/Shopping/image4.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Lamborghini",
+    "category": "Araba",
+    "price": "1000000",
+    "stock": "5",
+    "image": "http://www.vahitkeskin.com/Shopping/image5.jpg"
+  },
+  {
+    "id": 6,
+    "name": "No frost buzdolabı",
+    "category": "BeyazEsya",
+    "price": "10000",
+    "stock": "65",
+    "image": "http://www.vahitkeskin.com/Shopping/image6.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Kahve Makinesi",
+    "category": "KucukEvAletleri",
+    "price": "500",
+    "stock": "125",
+    "image": "http://www.vahitkeskin.com/Shopping/image7.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Dev Ekran Televizyon",
+    "category": "Televizyon",
+    "price": "5500",
+    "stock": "2",
+    "image": "http://www.vahitkeskin.com/Shopping/image8.jpg"
+  },
+  {
+    "id": 9,
+    "name": "Şık Ekmek Isıtıcı",
+    "category": "KucukEvAletleri",
+    "price": "250",
+    "stock": "78",
+    "image": "http://www.vahitkeskin.com/Shopping/image9.jpg"
+  },
+  {
+    "id": 10,
+    "name": "Kıvrımlı Televizyon",
+    "category": "Televizyon",
+    "price": "7500",
+    "stock": "78",
+    "image": "http://www.vahitkeskin.com/Shopping/image10.jpg"
+  },
+  {
+    "id": 11,
+    "name": "Telefon Oturrağı",
+    "category": "Telefon",
+    "price": "89",
+    "stock": "124",
+    "image": "http://www.vahitkeskin.com/Shopping/image11.jpg"
+  },
+  {
+    "id": 12,
+    "name": "Büyük Kapasiteli Buz Dolabı",
+    "category": "BeyazEsya",
+    "price": "4300",
+    "stock": "45",
+    "image": "http://www.vahitkeskin.com/Shopping/image12.jpg"
+  },
+  {
+    "id": 13,
+    "name": "128GB Şık Telefon",
+    "category": "Telefon",
+    "price": "3000",
+    "stock": "71",
+    "image": "http://www.vahitkeskin.com/Shopping/image13.jpg"
+  },
+  {
+    "id": 14,
+    "name": "Yazılımcılar İçin Full Ekran Bilgisayar",
+    "category": "Bilgisayar",
+    "price": "6500",
+    "stock": "18",
+    "image": "http://www.vahitkeskin.com/Shopping/image14.jpg"
+  },
+  {
+    "id": 15,
+    "name": "Mini Boy Telefon",
+    "category": "Telefon",
+    "price": "1500",
+    "stock": "189",
+    "image": "http://www.vahitkeskin.com/Shopping/image15.jpg"
+  },
+  {
+    "id": 16,
+    "name": "Şık Tasarımlı Çaydanlık",
+    "category": "KucukEvAletleri",
+    "price": "750",
+    "stock": "45",
+    "image": "http://www.vahitkeskin.com/Shopping/image16.jpg"
+  },
+  {
+    "id": 17,
+    "name": "Şık Tasarımlı Telefon",
+    "category": "Telefon",
+    "price": "7500",
+    "stock": "5",
+    "image": "http://www.vahitkeskin.com/Shopping/image17.jpg"
+  },
+  {
+    "id": 18,
+    "name": "Çamaşır Makinesi",
+    "category": "BeyazEsya",
+    "price": "3500",
+    "stock": "88",
+    "image": "http://www.vahitkeskin.com/Shopping/image18.jpg"
+  },
+  {
+    "id": 19,
+    "name": "Çift Ekranlı",
+    "category": "Bilgisayar",
+    "price": "15000",
+    "stock": "9",
+    "image": "http://www.vahitkeskin.com/Shopping/image19.jpg"
+  },
+  {
+    "id": 20,
+    "name": "Zarif Görünümlü Laptop",
+    "category": "Bilgisayar",
+    "price": "8000",
+    "stock": "4",
+    "image": "http://www.vahitkeskin.com/Shopping/image20.jpg"
+  },
+  {
+    "id": 21,
+    "name": "Range rover 2021",
+    "category": "Araba",
+    "price": "1500000",
+    "stock": "2",
+    "image": "http://www.vahitkeskin.com/Shopping/image21.jpg"
+  },
+  {
+    "id": 22,
+    "name": "Bilgisayar Ve Aksesuarları",
+    "category": "Bilgisayar",
+    "price": "11000",
+    "stock": "43",
+    "image": "http://www.vahitkeskin.com/Shopping/image22.jpg"
+  },
+  {
+    "id": 23,
+    "name": "Ferrari",
+    "category": "Araba",
+    "price": "900000",
+    "stock": "4",
+    "image": "http://www.vahitkeskin.com/Shopping/image23.jpg"
+  },
+  {
+    "id": 24,
+    "name": "Porsche",
+    "category": "Araba",
+    "price": "1900000",
+    "stock": "1",
+    "image": "http://www.vahitkeskin.com/Shopping/image24.jpg"
+  },
+  {
+    "id": 25,
+    "name": "Lamborghini",
+    "category": "Araba",
+    "price": "2000000",
+    "stock": "5",
+    "image": "http://www.vahitkeskin.com/Shopping/image25.jpg"
+  },
+  {
+    "id": 26,
+    "name": "Telefon Ve Air Kulaklığı",
+    "category": "Telefon",
+    "price": "16000",
+    "stock": "12",
+    "image": "http://www.vahitkeskin.com/Shopping/image26.jpg"
+  },
+  {
+    "id": 27,
+    "name": "256 GB Telefon",
+    "category": "Telefon",
+    "price": "15000",
+    "stock": "52",
+    "image": "http://www.vahitkeskin.com/Shopping/image27.jpg"
+  },
+  {
+    "id": 28,
+    "name": "32GB Ram Bilgisayar",
+    "category": "Bilgisayar",
+    "price": "25000",
+    "stock": "28",
+    "image": "http://www.vahitkeskin.com/Shopping/image28.jpg"
+  },
+  {
+    "id": 29,
+    "name": "Çamaşır Makinesi",
+    "category": "BeyazEsya",
+    "price": "5000",
+    "stock": "8",
+    "image": "http://www.vahitkeskin.com/Shopping/image29.jpg"
+  },
+  {
+    "id": 30,
+    "name": "Hijyenik Televizyon",
+    "category": "Televizyon",
+    "price": "8500",
+    "stock": "3",
+    "image": "http://www.vahitkeskin.com/Shopping/image30.jpg"
+  },
+  {
+    "id": 31,
+    "name": "Zarif Televizyon",
+    "category": "Televizyon",
+    "price": "7500",
+    "stock": "23",
+    "image": "http://www.vahitkeskin.com/Shopping/image31.jpg"
+  },
+  {
+    "id": 32,
+    "name": "Plazma Dev Ekranlı Televizyon",
+    "category": "Televizyon",
+    "price": "12500",
+    "stock": "7",
+    "image": "http://www.vahitkeskin.com/Shopping/image32.jpg"
+  },
+  {
+    "id": 33,
+    "name": "İnce Ekranlı Televizyon",
+    "category": "Televizyon",
+    "price": "9500",
+    "stock": "17",
+    "image": "http://www.vahitkeskin.com/Shopping/image33.jpg"
+  },
+  {
+    "id": 34,
+    "name": "Çok Şık Televizyon",
+    "category": "Televizyon",
+    "price": "6500",
+    "stock": "46",
+    "image": "http://www.vahitkeskin.com/Shopping/image34.jpg"
+  },
+  {
+    "id": 35,
+    "name": "Mercedes A5",
+    "category": "Araba",
+    "price": "335000",
+    "stock": "4",
+    "image": "http://www.vahitkeskin.com/Shopping/image35.jpg"
+  },
+  {
+    "id": 36,
+    "name": "Range Rover",
+    "category": "Araba",
+    "price": "1700000",
+    "stock": "2",
+    "image": "http://www.vahitkeskin.com/Shopping/image36.jpg"
+  },
+  {
+    "id": 37,
+    "name": "S Serisi Mercedes",
+    "category": "Araba",
+    "price": "1800000",
+    "stock": "1",
+    "image": "http://www.vahitkeskin.com/Shopping/image37.jpg"
+  },
+  {
+    "id": 38,
+    "name": "Lamborghini",
+    "category": "Araba",
+    "price": "2200000",
+    "stock": "13",
+    "image": "http://www.vahitkeskin.com/Shopping/image38.jpg"
+  },
+  {
+    "id": 39,
+    "name": "Ferrari",
+    "category": "Araba",
+    "price": "2600000",
+    "stock": "2",
+    "image": "http://www.vahitkeskin.com/Shopping/image39.jpg"
+  },
+  {
+    "id": 40,
+    "name": "32GB Telefon",
+    "category": "Telefon",
+    "price": "2700",
+    "stock": "25",
+    "image": "http://www.vahitkeskin.com/Shopping/image40.jpg"
+  },
+  {
+    "id": 41,
+    "name": "Ferrari 1962 Ferrari 250 GTO",
+    "category": "Araba",
+    "price": "3000000",
+    "stock": "5",
+    "image": "http://www.vahitkeskin.com/Shopping/image41.jpg"
+  },
+  {
+    "id": 42,
+    "name": "Zarif Bilgisayar",
+    "category": "Bilgisayar",
+    "price": "9900",
+    "stock": "7",
+    "image": "http://www.vahitkeskin.com/Shopping/image42.jpg"
+  },
+  {
+    "id": 43,
+    "name": "Telefon Ve Bilgisayar",
+    "category": "Bilgisayar",
+    "price": "19500",
+    "stock": "1",
+    "image": "http://www.vahitkeskin.com/Shopping/image43.jpg"
+  },
+  {
+    "id": 44,
+    "name": "3 Ekranlı Bilgisayar",
+    "category": "Bilgisayar",
+    "price": "49000",
+    "stock": "8",
+    "image": "http://www.vahitkeskin.com/Shopping/image44.jpg"
+  },
+  {
+    "id": 45,
+    "name": "Elektrikli süpürge",
+    "category": "KucukEvAletleri",
+    "price": "9000",
+    "stock": "76",
+    "image": "http://www.vahitkeskin.com/Shopping/image45.jpg"
+  },
+  {
+    "id": 46,
+    "name": "Ofis Bilgisayarı",
+    "category": "Bilgisayar",
+    "price": "7900",
+    "stock": "29",
+    "image": "http://www.vahitkeskin.com/Shopping/image46.jpg"
+  },
+  {
+    "id": 47,
+    "name": "Kahve Ve Çay Makinesi",
+    "category": "KucukEvAletleri",
+    "price": "6000",
+    "stock": "3",
+    "image": "http://www.vahitkeskin.com/Shopping/image47.jpg"
+  },
+  {
+    "id": 48,
+    "name": "Büyük Kapasiteli Çamaşı Makinesi",
+    "category": "BeyazEsya",
+    "price": "6300",
+    "stock": "14",
+    "image": "http://www.vahitkeskin.com/Shopping/image48.jpg"
+  },
+  {
+    "id": 49,
+    "name": "Zarif Görünümlü Televizyon",
+    "category": "Televizyon",
+    "price": "9000",
+    "stock": "10",
+    "image": "http://www.vahitkeskin.com/Shopping/image49.jpg"
+  },
+  {
+    "id": 50,
+    "name": "Yüksek Kapasiteli BeyazEsya",
+    "category": "BeyazEsya",
+    "price": "9500",
+    "stock": "1",
+    "image": "http://www.vahitkeskin.com/Shopping/image50.jpg"
+  },
+  {
+    "id": 51,
+    "name": "Düşük Kapasiteli BeyazEsya",
+    "category": "BeyazEsya",
+    "price": "9000",
+    "stock": "5",
+    "image": "http://www.vahitkeskin.com/Shopping/image51.jpg"
+  },
+  {
+    "id": 52,
+    "name": "Masaüstü Şık Bilgisayar",
+    "category": "Bilgisayar",
+    "price": "92500",
+    "stock": "9",
+    "image": "http://www.vahitkeskin.com/Shopping/image52.jpg"
+  },
+  {
+    "id": 53,
+    "name": "Lamborghini",
+    "category": "Araba",
+    "price": "1200000",
+    "stock": "4",
+    "image": "http://www.vahitkeskin.com/Shopping/image53.jpg"
+  },
+  {
+    "id": 54,
+    "name": "Kapuçino Kahve Makinesi",
+    "category": "KucukEvAletleri",
+    "price": "1300",
+    "stock": "55",
+    "image": "http://www.vahitkeskin.com/Shopping/image54.jpg"
+  },
+  {
+    "id": 55,
+    "name": "Gamer Bilgisayarı Şık Tasarım",
+    "category": "Bilgisayar",
+    "price": "19900",
+    "stock": "16",
+    "image": "http://www.vahitkeskin.com/Shopping/image60.jpg"
+  },
+  {
+    "id": 56,
+    "name": "32GB Yeni Nesil Telefon",
+    "category": "Telefon",
+    "price": "6300",
+    "stock": "5",
+    "image": "http://www.vahitkeskin.com/Shopping/image55.jpg"
+  },
+  {
+    "id": 57,
+    "name": "Çift Ekranlı Zarif Bilgisayar",
+    "category": "Bilgisayar",
+    "price": "15500",
+    "stock": "18",
+    "image": "http://www.vahitkeskin.com/Shopping/image56.jpg"
+  },
+  {
+    "id": 58,
+    "name": "Yeni Nesil Bilgisayar",
+    "category": "Bilgisayar",
+    "price": "9500",
+    "stock": "8",
+    "image": "http://www.vahitkeskin.com/Shopping/image57.jpg"
+  },
+  {
+    "id": 59,
+    "name": "10 Diablo GT1. Lamborghini",
+    "category": "Araba",
+    "price": "1100000",
+    "stock": "2",
+    "image": "http://www.vahitkeskin.com/Shopping/image58.jpg"
+  },
+  {
+    "id": 60,
+    "name": "5 Aventador J. Lamborghini",
+    "category": "Araba",
+    "price": "1750000",
+    "stock": "1",
+    "image": "http://www.vahitkeskin.com/Shopping/image59.jpg"
+  }
+]

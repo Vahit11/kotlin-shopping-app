@@ -67,6 +67,7 @@ class FeedFragment : Fragment(), CategoryAdapter.CategoryListener {
     }
 
     private fun observeLiveData() {
+        println("observeLiveData fun run!")
         viewModel.shopping.observe(viewLifecycleOwner, { shopping ->
             shopping?.let {
                 shoppingList.visibility = View.VISIBLE
