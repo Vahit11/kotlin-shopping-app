@@ -1,26 +1,26 @@
-https://raw.githubusercontent.com/Vahit11/kotlin-shopping-app/master/[
+[
   {
     "categoryname": "Araba",
-    "categoryimage": "https://raw.githubusercontent.com/Vahit11/kotlin-shopping-app/master/Shopping/category1.jpg"
+    "categoryimage": "http://www.vahitkeskin.com/Shopping/category1.jpg"
   },
   {
     "categoryname": "BeyazEsya",
-    "categoryimage": "https://raw.githubusercontent.com/Vahit11/kotlin-shopping-app/master/Shopping/category2.jpg"
+    "categoryimage": "http://www.vahitkeskin.com/Shopping/category2.jpg"
   },
   {
     "categoryname": "Bilgisayar",
-    "categoryimage": "https://raw.githubusercontent.com/Vahit11/kotlin-shopping-app/master/Shopping/category3.jpg"
+    "categoryimage": "http://www.vahitkeskin.com/Shopping/category3.jpg"
   },
   {
     "categoryname": "KucukEvAletleri",
-    "categoryimage": "https://raw.githubusercontent.com/Vahit11/kotlin-shopping-app/master/Shopping/category4.jpg"
+    "categoryimage": "http://www.vahitkeskin.com/Shopping/category4.jpg"
   },
   {
     "categoryname": "Telefon",
-    "categoryimage": "https://raw.githubusercontent.com/Vahit11/kotlin-shopping-app/master/Shopping/category5.jpg"
+    "categoryimage": "http://www.vahitkeskin.com/Shopping/category5.jpg"
   },
   {
     "categoryname": "Televizyon",
-    "categoryimage": "https://raw.githubusercontent.com/Vahit11/kotlin-shopping-app/master/Shopping/category6.jpg"
+    "categoryimage": "http://www.vahitkeskin.com/Shopping/category6.jpg"
   }
 ]

@@ -13,7 +13,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.google.android.material.snackbar.Snackbar
 import com.vahitkeskin.kotlinshoppingapp.R
-import com.vahitkeskin.kotlinshoppingapp.adapter.MovieAdapter
+import com.vahitkeskin.kotlinshoppingapp.adapter.SelectedProductAdapter
 import com.vahitkeskin.kotlinshoppingapp.databinding.FragmentShoppingBinding
 import com.vahitkeskin.kotlinshoppingapp.model.Products
 import com.vahitkeskin.kotlinshoppingapp.viewmodel.ShoppingViewModel
@@ -27,7 +27,7 @@ class ShoppingFragment : Fragment() {
     private lateinit var binding: FragmentShoppingBinding
     private var basketItem = 1
     private var basketItemStock = 0
-    private var movieAdapter: MovieAdapter? = null
+    private var selectedProductAdapter: SelectedProductAdapter? = null
     private var movieList: MutableList<Products> = arrayListOf()
 
     override fun onCreateView(
@@ -89,8 +89,8 @@ class ShoppingFragment : Fragment() {
         binding.title.inAnimation = myIn
         binding.title.outAnimation = myOut
 
-        movieAdapter = MovieAdapter(movieList, requireContext())
-        binding.coverFlow.adapter = movieAdapter
+        selectedProductAdapter = SelectedProductAdapter(movieList, requireContext())
+        binding.coverFlow.adapter = selectedProductAdapter
         binding.coverFlow.setOnScrollPositionListener(object :
             FeatureCoverFlow.OnScrollPositionListener {
             override fun onScrolledToPosition(position: Int) {
@@ -131,12 +131,17 @@ class ShoppingFragment : Fragment() {
     }
 
     private fun productSavedDB() {
-        if (binding.etShoppingItem.text.toString().toInt() > basketItemStock) {
-            largeOfProductLargeStock()
+        val numberOfProducts = binding.etShoppingItem.text.toString()
+        if (numberOfProducts.isEmpty() || numberOfProducts.toInt() <= 0) {
+            Toast.makeText(context, "Is not null. Please!", Toast.LENGTH_LONG).show()
         } else {
-            Toast.makeText(context, "Item size new: $basketItem", Toast.LENGTH_LONG).show()
-            //Saved ROOM
+            if (numberOfProducts.toInt() > basketItemStock) {
+                largeOfProductLargeStock()
+            } else {
+                Toast.makeText(context, "Item size new: $basketItem", Toast.LENGTH_LONG).show()
+                //Saved ROOM
+
+            }
         }
     }
-
 }
