@@ -133,6 +133,7 @@ class ShoppingFragment : Fragment() {
     private fun productSavedDB() {
         val numberOfProducts = binding.etShoppingItem.text.toString()
         if (numberOfProducts.isEmpty() || numberOfProducts.toInt() <= 0) {
+            binding.etShoppingItem.setText("1")
             Toast.makeText(context, "Is not null. Please!", Toast.LENGTH_LONG).show()
         } else {
             if (numberOfProducts.toInt() > basketItemStock) {
